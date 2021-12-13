@@ -18,7 +18,7 @@ const tab_users = [
 ```
 But before doing we need to create a function which is going to find those users for that we are going to use this :
 ```bash
-export function verifUserExist (username) {
+export function VerifierUsers (username) {
     return tab_users.find((user) => {
       return user.username === username;
     });
@@ -27,7 +27,7 @@ export function verifUserExist (username) {
 Now the function :
 ```bash
 export function USER (args) {
-    return (verifUserExist(args)) 
+    return (VerifierUsers(args)) 
         ? "220 The user exists. \r\n" 
         : "530 The user doesn't exist.\r\n"
 };
@@ -71,7 +71,7 @@ So, this part is same as the first one, in this case we are going to test if the
 
 ## The existants of the password 
 ```bash
-export function verifPassword (password) {
+export function Verifiermp (password) {
   let result = false;
   for (const user of tab_users) {
       if(user.password == password)
@@ -84,7 +84,7 @@ Then to see if the password entered is correct :
 ```bash
 export function PASS(args) {
   let result = ''
-  if(verifPassword(args))
+  if(Verifiermp(args))
       result = "Message 230 Bro, your password is correct  !. \r\n";
   else
       result = "Error 530 Bro, your password is incorrect.\r\n";
